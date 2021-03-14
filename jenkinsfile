@@ -9,6 +9,7 @@ pipeline {
       stage('fetch_latest_code') {
         steps {
           git credentialsId: 'GitHubAccess', url: 'hhttps://github.com/djiman/scanAV.git'
+          sh 'git pull'
         }
       }
 
