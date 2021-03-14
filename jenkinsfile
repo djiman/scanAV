@@ -15,7 +15,7 @@ pipeline {
       stage('TF Init&Plan') {
         steps {
           sh 'terraform init'
-          sh 'terraform plan'
+          sh 'terraform plan -var='s3_targets=[ "s3-bucket-quarantine" ]''
         }      
       }
     } 
