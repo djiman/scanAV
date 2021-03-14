@@ -1,0 +1,22 @@
+pipeline {
+    agent {
+      node {
+        label "master"
+      } 
+    }
+
+    stages {
+      stage('fetch_latest_code') {
+        steps {
+          git credentialsId: 'GitHubAccess', url: 'hhttps://github.com/djiman/scanAV.git'
+        }
+      }
+
+      stage('TF Init&Plan') {
+        steps {
+          sh 'terraform init'
+          sh 'terraform plan'
+        }      
+      }
+    } 
+  }
