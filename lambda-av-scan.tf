@@ -29,7 +29,7 @@ resource "aws_lambda_function" "av_scan" {
   function_name = var.av_scan_name
   role          = aws_iam_role.bucket_antivirus_scan.arn
   
-  runtime = "python3.8"
+  runtime = "python3.7"
   handler = "scan.lambda_handler"
 
   memory_size = 2048
